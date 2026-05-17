@@ -1,9 +1,8 @@
 ```markdown
-# Enterprise RAG Assistant
+# RAG Assistant
 
 A lightweight, document-grounded AI assistant that answers questions from
 enterprise documents (PDFs and CSVs) using retrieval-augmented generation.
-Built for reliability and safe failure modes over polish.
 
 ---
 
@@ -19,17 +18,17 @@ pip install pypdf pandas numpy sentence-transformers chromadb openai
 
 ```
 project/
-├── rag.py
+├── main.py & other scripts.
 ├── dataDocs/
-│   ├── your_document.pdf
-│   └── your_data.csv
+│   ├── document(s).pdf
+│   └── data.csv #specially optimised for sales reports, revenues, etc. 
 └── vectordb/          # auto-created on first run and updated on addition of every new doc. chunk
 ```
 
 ### Run
 
 ```bash
-python enterprise_rag.py
+python main.py
 ```
 
 On first run, all documents are chunked and embedded into a local ChromaDB
