@@ -1,0 +1,258 @@
+python rag.py
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 3505.09it/s]
+Processing: 2021-annual-performance-report.pdf
+Processing: 2022-annual-performance-report.pdf
+Processing: DOC2022.pdf
+Processing: HHS2022.pdf
+Processing: NARA2022.pdf
+Processing: Sales_April_2019.csv
+
+Total chunks: 19407
+Embedding 19407 new chunks …
+Embedding complete.
+Vector store ready.
+
+Enterprise RAG assistant
+Commands: 'quit' to exit | 'eval' to run evaluation | 'history' to show memory
+
+You: eval
+
+============================================================
+                     EVALUATION REPORT                      
+============================================================
+
+Q : What were HHS's strategic goals for 2022?
+    keyword_score : 0.67  (2/3 keywords found)
+    source_match  : NO
+    confidence    : 0.51
+    flag          : ok
+
+Q : What is the top 5 products by revenue?
+    keyword_score : 1.00  (2/2 keywords found)
+    source_match  : yes
+    confidence    : 1.0
+    flag          : analytical
+
+Q : What is NARA's performance target?
+    keyword_score : 1.00  (3/3 keywords found)
+    source_match  : yes
+    confidence    : 0.83
+    flag          : ok
+
+Q : What is the total revenue?
+    keyword_score : 1.00  (2/2 keywords found)
+    source_match  : yes
+    confidence    : 1.0
+    flag          : analytical
+
+────────────────────────────────────────────────────────────
+Average keyword score : 0.92
+============================================================
+
+You: hi
+
+Answer     : I don’t have enough information in the provided context to know what you need. Please tell me what you’d like help with (for example: top products, total revenue, or another question). (SOURCE: Sales_April_2019.csv)
+Confidence : 0.54
+Flag       : ok
+Sources    :
+  - Sales_April_2019.csv (row 7349) | conf: 0.54
+    "Order ID: 183566 | Product: Google Phone | Quantity Ordered: 1.0 | Price Each: 600.0 | Order Date: 04/15/19 20:50 | Purchase Address: 801 Church St, Boston, MA 02215 | Revenue: 600.0..."
+  - Sales_April_2019.csv (row 7109) | conf: 0.54
+    "Order ID: 183342 | Product: Vareebadd Phone | Quantity Ordered: 1.0 | Price Each: 400.0 | Order Date: 04/06/19 22:29 | Purchase Address: 449 Pine St, Boston, MA 02215 | Revenue: 400.0..."
+  - Sales_April_2019.csv (row 15866) | conf: 0.54
+    "Order ID: 191695 | Product: Vareebadd Phone | Quantity Ordered: 1.0 | Price Each: 400.0 | Order Date: 04/07/19 14:14 | Purchase Address: 893 Cherry St, Boston, MA 02215 | Revenue: 400.0..."
+
+You: what is the latest year report about ?
+
+Answer     : I don’t have enough information in the provided context to determine what the “latest year report” is about. The only files in the context are Sales_April_2019.csv entries (which contain only column headers and no report content). (SOURCE: Sales_April_2019.csv)
+Confidence : 0.64
+Flag       : ok
+Sources    :
+  - Sales_April_2019.csv (row 2878) | conf: 0.64
+    "Order ID: Order ID | Product: Product | Quantity Ordered: nan | Price Each: nan | Order Date: Order Date | Purchase Address: Purchase Address | Revenue: nan..."
+  - Sales_April_2019.csv (row 10958) | conf: 0.64
+    "Order ID: Order ID | Product: Product | Quantity Ordered: nan | Price Each: nan | Order Date: Order Date | Purchase Address: Purchase Address | Revenue: nan..."
+  - Sales_April_2019.csv (row 15280) | conf: 0.64
+    "Order ID: Order ID | Product: Product | Quantity Ordered: nan | Price Each: nan | Order Date: Order Date | Purchase Address: Purchase Address | Revenue: nan..."
+
+You: what is the annual 2021 performance report says ?
+
+Answer     : I only have excerpts of the OPM Fiscal Year 2021 Annual Performance Report (March 2022). From those excerpts the report:
+- Is the United States Office of Personnel Management Annual Performance Report, Fiscal Year 2021. (SOURCE: 2021-annual-performance-report.pdf)
+- Under Strategic Goal 2 (modernize human capital IT and data management), Strategic Objective 2.1 reports that OPM embedded data analysis and research into relevant policies and achieved 100.0% of policies embedding data analysis in FY2021 (target ≥ 80% — target met). (SOURCE: 2021-annual-performance-report.pdf)
+- The FY2021 milestone to “Develop pilot or demonstration projects based on OPM’s Research (Learning) Agenda” was Not Met; OPM refined its Learning Agenda in FY2021 and will identify pilots beginning in FY2022. (SOURCE: 2021-annual-performance-report.pdf)
+- Strategic Objective 2.2 focuses on advancing human capital management through interoperable HR IT (including deploying an API-based integration solution and moving toward a SaaS model); OPM established the Human Capital Data Management and Modernization (HCDMM) team to support this work. (SOURCE: 2021-annual-performance-report.pdf)
+
+I don’t have the rest of the report in the provided context, so I can’t summarize other goals or sections. (SOURCE: 2021-annual-performance-report.pdf)
+Confidence : 0.79
+Flag       : ok
+Sources    :
+  - 2021-annual-performance-report.pdf (page 1) | conf: 0.79
+    "United States Office of Personnel Management Annual Performance Report Fiscal Year 2021 OPM.gov March 2022..."
+  - 2021-annual-performance-report.pdf (page 23) | conf: 0.77
+    "23OPM Fiscal Year 2021 Annual Performance Report Strategic Goal 2: Lead the establishment and modernization of human capital information technology and data management systems and solutions Strategic ..."
+  - 2021-annual-performance-report.pdf (page 33) | conf: 0.77
+    "33OPM Fiscal Year 2021 Annual Performance Report Table 2 .1A Table Performance Measure FY 2017 Results FY 2018 Results FY 2019 Results FY 2020 Results FY 2021 Results FY 2021 Target FY 2021 Target Met..."
+
+You: and what about HHS2022 ?
+
+Answer     : I have only limited excerpts from HHS2022.pdf. From those excerpts:
+
+- The document is the HHS Strategic Plan (FY 2022–2026) and includes performance planning material (Performance Goals / Annual Performance Plan). (SOURCE: HHS2022.pdf)
+
+- Section 1.2 “Services, Devices & Drugs” aims to reduce costs, improve quality of healthcare services, and ensure access to safe medical devices and drugs. HHS develops payment models, implements quality-improvement approaches, strengthens patient safety and access to medical products, and expands safe information exchange. Contributing OpDivs and StaffDivs listed include AHRQ, ASPE, CDC, CMS, FDA, HRSA, IHS, NIH, OASH, ONC, and SAMHSA. (SOURCE: HHS2022.pdf)
+
+- A workforce-related objective (page 149 excerpt) focuses on managing a high-performing workforce and providing leaders/managers tools for change management, organizational learning, and succession planning. All OpDivs and StaffDivs contribute; partners include the Chief Human Capital Officers Council. Performance indicators shown include:
+  - Performance Measure 5.3.1: Intrinsic Work Experience (from the Federal Employee Viewpoint Survey)
+  - Performance Measure 5.3.2: Employee Satisfaction with Opportunities for Professional Development and Growth
+  (SOURCE: HHS2022.pdf)
+
+I don’t have the rest of HHS2022.pdf in the provided context, so I can’t summarize other goals, measures, or sections beyond these excerpts. (SOURCE: HHS2022.pdf)
+Confidence : 0.79
+Flag       : ok
+Sources    :
+  - HHS2022.pdf (page 15) | conf: 0.79
+    "U.S. Department of Health and Human Services Page 15 Strategic Plan _fa267116-d3c2-11ec-9871-c994f982ea00 PLACEHOLDER_17 _bca60088-cf47-11ec-89c9-1e9f0283ea00 Performance Indicators Description Type S..."
+  - HHS2022.pdf (page 149) | conf: 0.79
+    "U.S. Department of Health and Human Services Page 149 Strategic Plan _bca62c34-cf47-11ec-89c9-1e9f0283ea00 manage a high-performing workforce while providing leaders and managers with the insight and ..."
+  - 2021-annual-performance-report.pdf (page 1) | conf: 0.78
+    "United States Office of Personnel Management Annual Performance Report Fiscal Year 2021 OPM.gov March 2022..."
+
+You: summary of HHS2022 
+
+Answer     : I have only limited excerpts of the HHS Strategic Plan (FY 2022–2026) in the provided context (pages 1, 41, and 149). From those excerpts, here is a concise summary:
+
+- Document type and purpose: The HHS Strategic Plan for FY 2022–2026 is published as a web document, intended to be updated periodically as a “living” plan that states HHS’s mission, values, goals, and how progress is measured over the four-year period. (SOURCE: HHS2022.pdf, Page 1)
+
+- Performance planning: The Plan includes an Annual Performance Plan providing measures of progress toward the Strategic Plan’s goals and objectives. (SOURCE: HHS2022.pdf, Pages 1, 41, 149)
+
+- Objective 1.5 — Bolster the health workforce: HHS describes an objective to support and strengthen the health workforce so it can deliver quality services and care, including professional development and culturally/linguistically appropriate care. Contributing operating and staff divisions listed for this objective include AHRQ, ASPE, CDC, CMS, FDA, HRSA, IHS, OASH, OGA, and SAMHSA. (SOURCE: HHS2022.pdf, Page 41)
+
+- Objective 5.3 — Manage a high-performing workforce: The Plan includes an objective to manage a high-performing workforce and equip leaders/managers with tools for change management, organizational learning, and succession planning. All OpDivs and StaffDivs contribute; partners include the Chief Human Capital Officers Council. (SOURCE: HHS2022.pdf, Page 149)
+
+- Performance measures shown (excerpted): Performance Measure 5.3.1 — Intrinsic Work Experience (from the Federal Employee Viewpoint Survey); Performance Measure 5.3.2 — Employee Satisfaction with Opportunities for Professional Development and Growth. (SOURCE: HHS2022.pdf, Page 149)
+
+I don’t have the rest of HHS2022.pdf in the provided context, so I cannot summarize other goals, sections, or performance measures beyond these excerpts. (SOURCE: HHS2022.pdf, Pages 1, 41, 149)
+Confidence : 0.87
+Flag       : ok
+Sources    :
+  - HHS2022.pdf (page 41) | conf: 0.87
+    "U.S. Department of Health and Human Services Page 41 Strategic Plan _fa2e8f04-d3c2-11ec-9871-c994f982ea00 PLACEHOLDER_99 _bca615aa-cf47-11ec-89c9-1e9f0283ea00 Performance Indicators Description Type S..."
+  - HHS2022.pdf (page 149) | conf: 0.85
+    "U.S. Department of Health and Human Services Page 149 Strategic Plan _bca62c34-cf47-11ec-89c9-1e9f0283ea00 manage a high-performing workforce while providing leaders and managers with the insight and ..."
+  - HHS2022.pdf (page 1) | conf: 0.85
+    "Page 1 Strategic Plan FY 2022 – 2026 Every four years, HHS updates its Strategic Plan, which describes its work to address complex, multifaceted, and evolving health and human services issues. An agen..."
+
+You: performance indicators in HHS2022
+
+Answer     : From the provided HHS2022 excerpts, the performance indicators shown are:
+
+- Objective 5.3 — Manage a high-performing workforce
+  - Performance Measure 5.3.1: Intrinsic Work Experience (From Federal Employee Viewpoint Survey) (SOURCE: HHS2022.pdf, Page 149)
+  - Performance Measure 5.3.2: Employee Satisfaction with Opportunities for Professional Development and Growth (SOURCE: HHS2022.pdf, Page 149)
+
+- Objectives 1.2 (Services, Devices & Drugs) and 1.5 (Workforce) each state that related performance measures are provided in the HHS Annual Performance Plan, and the excerpt includes table headers (Performance Indicators / Target [To be determined] / Actual) but the specific measures are not included in the provided context. I don’t have the detailed performance measures for those objectives in the excerpts you gave. (SOURCE: HHS2022.pdf, Pages 15, 41)
+Confidence : 0.84
+Flag       : ok
+Sources    :
+  - HHS2022.pdf (page 15) | conf: 0.84
+    "U.S. Department of Health and Human Services Page 15 Strategic Plan _fa267116-d3c2-11ec-9871-c994f982ea00 PLACEHOLDER_17 _bca60088-cf47-11ec-89c9-1e9f0283ea00 Performance Indicators Description Type S..."
+  - HHS2022.pdf (page 149) | conf: 0.83
+    "U.S. Department of Health and Human Services Page 149 Strategic Plan _bca62c34-cf47-11ec-89c9-1e9f0283ea00 manage a high-performing workforce while providing leaders and managers with the insight and ..."
+  - HHS2022.pdf (page 41) | conf: 0.82
+    "U.S. Department of Health and Human Services Page 41 Strategic Plan _fa2e8f04-d3c2-11ec-9871-c994f982ea00 PLACEHOLDER_99 _bca615aa-cf47-11ec-89c9-1e9f0283ea00 Performance Indicators Description Type S..."
+
+You: tell me about different performance indicator of HHS2022
+
+Answer     : From the provided excerpts of HHS2022.pdf, here is what the document shows about performance indicators and what is missing:
+
+What is explicitly shown in the excerpts
+- Objective 5.3 — Manage a high‑performing workforce
+  - Performance Measure 5.3.1: Intrinsic Work Experience (From Federal Employee Viewpoint Survey). The excerpt shows the measure name and table columns (Type, Start Date, End Date, Rating) but no targets or actuals in the provided text. (SOURCE: HHS2022.pdf, p.149)
+  - Performance Measure 5.3.2: Employee Satisfaction with Opportunities for Professional Development and Growth. The excerpt shows the measure name but no targets or actuals in the provided text. (SOURCE: HHS2022.pdf, p.149)
+
+What the excerpts indicate but do not detail
+- Objective 1.2 — Services, Devices & Drugs: the excerpt includes a "Performance Indicators" table header (and notes the Target is “[To be determined]”), but the specific indicator names, targets, and actuals are not included in the provided excerpt. (SOURCE: HHS2022.pdf, p.15)
+- Objective 1.5 (Bolster the health workforce) and governance/enterprise objectives reference that related performance measures are provided in the HHS Annual Performance Plan, but the specific indicators and numeric targets are not present in the provided excerpts. (SOURCE: HHS2022.pdf, p.41; p.15; p.149)
+
+Limitations / next steps
+- The provided context does not contain a full list of performance indicators, nor targets or actual performance values for most objectives. I don’t have enough information in the supplied excerpts to list all HHS2022 performance indicators or their targets/actuals; those details appear to be in other parts of the HHS Annual Performance Plan or the full Strategic Plan not included here. (SOURCE: HHS2022.pdf, pp.15, 41, 149)
+Confidence : 0.84
+Flag       : ok
+Sources    :
+  - HHS2022.pdf (page 149) | conf: 0.84
+    "U.S. Department of Health and Human Services Page 149 Strategic Plan _bca62c34-cf47-11ec-89c9-1e9f0283ea00 manage a high-performing workforce while providing leaders and managers with the insight and ..."
+  - HHS2022.pdf (page 15) | conf: 0.83
+    "U.S. Department of Health and Human Services Page 15 Strategic Plan _fa267116-d3c2-11ec-9871-c994f982ea00 PLACEHOLDER_17 _bca60088-cf47-11ec-89c9-1e9f0283ea00 Performance Indicators Description Type S..."
+  - HHS2022.pdf (page 139) | conf: 0.83
+    "fective enterprise governance and ensure programmatic goals are achieved. HHS is strengthening governance, enterprise risk management, and strategic decision making across the Department to better pur..."
+
+You: different staekholders in strategic plan of HHS2022
+
+Answer     : From the provided excerpts of the HHS Strategic Plan (FY 2022–2026), the plan names the following stakeholders and partner groups (by excerpt and source):
+
+- Stakeholder category named
+  - Health Workforce. (SOURCE: HHS2022.pdf, Page 41)
+
+- Contributing Operating and Staff Divisions (OpDivs/StaffDivs) cited for specific objectives
+  - For Objective 1.5 (Bolster the health workforce): AHRQ, ASPE, CDC, CMS, FDA, HRSA, IHS, OASH, OGA, and SAMHSA. (SOURCE: HHS2022.pdf, Page 41)
+  - For the objective on prevention/disparities (excerpt): AHRQ, ACF, ACL, ASFR, CDC, CMS, FDA, HRSA, IHS, NIH, OASH, and SAMHSA. (SOURCE: HHS2022.pdf, Page 63)
+  - For another objective: “All OpDivs and StaffDivs contribute” (i.e., the plan notes all organizational divisions contribute to that objective). (SOURCE: HHS2022.pdf, Page 142)
+
+- HHS partner groups and external stakeholders listed
+  - Examples in the prevention/disparities excerpt: Disease, Disability, and Injury Prevention and Control Special Emphasis Panel; Injury Prevention in AI/AN Communities Interagency Committee on Smoking and Health; National Center for Injury Prevention and Control Board of Scientific Counselors; National Organizations of State and Local Officials Cooperative Agreement; National Youth Tobacco Survey (NYTS); Native American Research Centers for Health (NARCH); Population Assessment… (excerpt truncated). (SOURCE: HHS2022.pdf, Page 63)
+  - Examples in the governance/enterprise excerpt: Chief Acquisition Officers Council (CAOC); Chief Financial Officers Council (CFOC); Healthcare Fraud Prevention Partnership; National Business Office Committee (NBOC); Shared Services Governance Board (SSGB). (SOURCE: HHS2022.pdf, Page 142)
+
+Limitations
+- These are the stakeholders explicitly named in the provided excerpts only. The document excerpts are partial/truncated, so I do not have a comprehensive list of all stakeholders or partners that appear elsewhere in the full Strategic Plan or Annual Performance Plan. (SOURCES: HHS2022.pdf, Pages 41, 63, 142)
+Confidence : 0.84
+Flag       : ok
+Sources    :
+  - HHS2022.pdf (page 41) | conf: 0.84
+    "U.S. Department of Health and Human Services Page 41 Strategic Plan _fa2e8f04-d3c2-11ec-9871-c994f982ea00 PLACEHOLDER_99 _bca615aa-cf47-11ec-89c9-1e9f0283ea00 Performance Indicators Description Type S..."
+  - HHS2022.pdf (page 63) | conf: 0.84
+    "U.S. Department of Health and Human Services Page 63 Strategic Plan _bca61b0e-cf47-11ec-89c9-1e9f0283ea00 ations to support healthy behaviors that improve health conditions and reduce disparities in h..."
+  - HHS2022.pdf (page 142) | conf: 0.83
+    "U.S. Department of Health and Human Services Page 142 Strategic Plan _bca62b4e-cf47-11ec-89c9-1e9f0283ea00 Stakeholder(s): Contributing OpDivs and StaffDivs : All OpDivs and StaffDivs contribute to ac..."
+
+You: tell me about Shared Services Governance Board                              
+
+Answer     : The provided HHS2022 excerpts only identify the Shared Services Governance Board (SSGB) as one of HHS’s partner groups. It appears in a list of HHS Partners that “OpDivs and StaffDivs engage and work with a broad range of partners and stakeholders” (alongside CAOC, CFOC, Healthcare Fraud Prevention Partnership, and NBOC). No further description, roles, membership, or functions of the SSGB are included in the provided context, so I don’t have additional information. (SOURCE: HHS2022.pdf, Page 142)
+Confidence : 0.78
+Flag       : ok
+Sources    :
+  - HHS2022.pdf (page 146) | conf: 0.78
+    "U.S. Department of Health and Human Services Page 146 Strategic Plan _fa548f60-d3c2-11ec-9871-c994f982ea00 PLACEHOLDER_404 _b772acec-d1a4-11ec-8a37-7d352783ea00 Performance Indicators Description Type..."
+  - HHS2022.pdf (page 142) | conf: 0.77
+    "U.S. Department of Health and Human Services Page 142 Strategic Plan _bca62b4e-cf47-11ec-89c9-1e9f0283ea00 Stakeholder(s): Contributing OpDivs and StaffDivs : All OpDivs and StaffDivs contribute to ac..."
+  - HHS2022.pdf (page 141) | conf: 0.77
+    "U.S. Department of Health and Human Services Page 141 Strategic Plan PLACEHOLDER_386 _b771f1f8-d1a4-11ec-8a37-7d352783ea00 Strategy 5.1.2. Learning & Improvement Continue to create a culture of learni..."
+
+You: what i asked you previously?
+
+Answer     : You previously asked: "tell me about Shared Services Governance Board." (SOURCE: HHS2022.pdf, Page 142)
+Confidence : 0.71
+Flag       : ok
+Sources    :
+  - 2022-annual-performance-report.pdf (page 17) | conf: 0.71
+    "16 OPM Fiscal Year 2022 Annual Performance Report Security , Suitability , and Credentialing Line of Business (SSCLoB) is an interagency organization that is administratively housed within OPM. The SS..."
+  - HHS2022.pdf (page 142) | conf: 0.7
+    "U.S. Department of Health and Human Services Page 142 Strategic Plan _bca62b4e-cf47-11ec-89c9-1e9f0283ea00 Stakeholder(s): Contributing OpDivs and StaffDivs : All OpDivs and StaffDivs contribute to ac..."
+  - 2021-annual-performance-report.pdf (page 15) | conf: 0.7
+    "15OPM Fiscal Year 2021 Annual Performance Report Security, Suitability, and Credentialing Line of Business (SSCLoB) is an interagency organization that is administratively housed within OPM. The SSCLo..."
+
+You: who is PM Modi ?
+
+Answer     : I don’t have information about “PM Modi” in the provided context. None of the supplied documents mention or define PM Modi (sources checked: HHS2022.pdf; 2022-annual-performance-report.pdf; DOC2022.pdf). Please provide a source or excerpt that defines PM Modi if you want an answer drawn only from the provided materials. (SOURCES: HHS2022.pdf; 2022-annual-performance-report.pdf; DOC2022.pdf)
+Confidence : 0.49
+Flag       : ok
+Sources    :
+  - 2022-annual-performance-report.pdf (page 6) | conf: 0.49
+    "key Administration priorities and goals concerning Government-wide human capital management matters...."
+  - HHS2022.pdf (page 27) | conf: 0.48
+    "ble benefits. Stakeholder(s): Women African American/Black Native Women American Indian/Alaska Native Women People with Lower Incomes _fa299d46-d3c2-11ec-9871-c994f982ea00 PLACEHOLDER_55 _197f5438-d00..."
+  - DOC2022.pdf (page 11) | conf: 0.48
+    "U.S. Department of Commerce Page 11 Performance Plan _b4f73906-b6dd-11ec-9f70-9cc42783ea00 PLACEHOLDER_7 _b4f790a4-b6dd-11ec-9f70-9cc42783ea00 PLACEHOLDER_8 _b4f7a0ee-b6dd-11ec-9f70-9cc42783ea00 PLACE..."
+
+You: quit
+(.venv) rajeev.mishra:~/rajeev/assignment_sutra$ 
